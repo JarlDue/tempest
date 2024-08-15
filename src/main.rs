@@ -4,22 +4,34 @@ mod engine;
 mod reporter;
 
 use campaign::Campaign;
+use clap::Parser;
 use engine::LoadEngine;
 use engine::ScenarioResult;
 use reporter::Reporter;
+use std::path::PathBuf;
 
-fn main() -> Result<(), Box<dyn std::error::Error>> {
-    let yaml_str = include_str!("../example_campaign.yaml");
-    let campaign = Campaign::from_yaml(yaml_str)?;
+#[derive(Parser, Debug)]
+#[clap(author, version, about, long_about = None)]
+struct Args {
+    #[clap(short, long, parse(from_os_str))]
+    config: PathBuf,
 
-    let engine = LoadEngine::new(&campaign);
-    let results = engine.run()?;
+    #[clap(long)]
+    dry_run: bool,
+}
 
-    println!("\nFinal Results:");
-    generate_html_report(&campaign, &results);
-    for result in results {
-        println!("{:?}", result);
-    }
+#[tokio::main]
+async fn main() -> Result<(), Box<dyn std::error::Error>> {
+    let args = Args::parse();
+
+    let yaml_str = std::fs::read_to_string(args.config)?;
+    let campaign = Campaign::from_yaml(&yaml_str)?;
+
+    let engine = LoadEngine::new(&campaign, args.dry_run);
+    let results = engine.run().await?;
+
+    println!("\nGenerating HTML report...");
+    generate_html_report(&campaign, &results)?;
 
     Ok(())
 }

@@ -24,6 +24,13 @@ pub struct Scenario {
     pub json_content: Option<serde_json::Value>,
     #[serde(default)]
     pub raw_content: Option<String>,
+    #[serde(default)]
+    pub response: Option<ResponseExtraction>,
+}
+
+#[derive(Debug, Deserialize, Serialize)]
+pub struct ResponseExtraction {
+    pub extract: HashMap<String, String>,
 }
 
 #[derive(Debug, Deserialize, Serialize)]

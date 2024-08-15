@@ -1,0 +1,26 @@
+name: "Test Service Load Test Campaign"
+version: "1.0"
+description: "Load test campaign for our test service"
+base_url: "http://127.0.0.1:8080"
+
+scenarios:
+  - name: "Homepage Access"
+    endpoint: "/"
+    method: "GET"
+    rate: 50  # requests per second
+    duration: 10  # seconds
+
+  - name: "User Creation"
+    endpoint: "/user"
+    method: "POST"
+    rate: 20
+    duration: 10
+    json_content:
+      name: "Test User"
+    response:
+      extract:
+        user_id: 'User ID: ([a-f0-9-]+)'
+
+success_criteria:
+  max_response_time: 500  # milliseconds
+  error_rate_threshold: 0.01  # 1%

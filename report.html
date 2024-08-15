@@ -1,0 +1,114 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tempest Load Test Report</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 p-8">
+    <div class="max-w-4xl mx-auto">
+        <h1 class="text-3xl font-bold mb-6">Tempest Load Test Report</h1>
+        <div class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+            <h2 class="text-xl font-semibold mb-4">Campaign: E-commerce Platform Load Test Campaign</h2>
+            <p class="mb-2"><strong>Version:</strong> 1.1</p>
+            <p class="mb-2"><strong>Description:</strong> Basic load test campaign for our e-commerce platform</p>
+            <p class="mb-4"><strong>Base URL:</strong> https://api.example-ecommerce.com</p>
+            <h3 class="text-lg font-semibold mb-2">Success Criteria:</h3>
+            <ul class="list-disc list-inside mb-4">
+                <li>Max Response Time: 500 ms</li>
+                <li>Error Rate Threshold: 1.00%</li>
+            </ul>
+        </div>
+        <h2 class="text-2xl font-bold mb-4">Scenario Results</h2>
+    
+        <div class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+            <h3 class="text-xl font-semibold mb-4">Homepage Browsing</h3>
+            <div class="grid grid-cols-2 gap-4">
+                <div>
+                    <p class="mb-2"><strong>Requests Sent:</strong> 15000</p>
+                    <p class="mb-2"><strong>Successful Requests:</strong> 14937</p>
+                    <p class="mb-2"><strong>Failed Requests:</strong> 63</p>
+                    <p class="mb-2"><strong>Error Rate:</strong> <span class="text-green-600">0.42%</span></p>
+                </div>
+                <div>
+                    <p class="mb-2"><strong>Avg Response Time:</strong> 254.84 ms</p>
+                    <p class="mb-2"><strong>Min Response Time:</strong> 40 ms</p>
+                    <p class="mb-2"><strong>Max Response Time:</strong> <span class="text-green-600">254 ms</span></p>
+                </div>
+            </div>
+        </div>
+    
+        <div class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+            <h3 class="text-xl font-semibold mb-4">Product Search</h3>
+            <div class="grid grid-cols-2 gap-4">
+                <div>
+                    <p class="mb-2"><strong>Requests Sent:</strong> 5400</p>
+                    <p class="mb-2"><strong>Successful Requests:</strong> 5348</p>
+                    <p class="mb-2"><strong>Failed Requests:</strong> 52</p>
+                    <p class="mb-2"><strong>Error Rate:</strong> <span class="text-green-600">0.96%</span></p>
+                </div>
+                <div>
+                    <p class="mb-2"><strong>Avg Response Time:</strong> 209.50 ms</p>
+                    <p class="mb-2"><strong>Min Response Time:</strong> 37 ms</p>
+                    <p class="mb-2"><strong>Max Response Time:</strong> <span class="text-green-600">346 ms</span></p>
+                </div>
+            </div>
+        </div>
+    
+        <div class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+            <h3 class="text-xl font-semibold mb-4">Add to Cart</h3>
+            <div class="grid grid-cols-2 gap-4">
+                <div>
+                    <p class="mb-2"><strong>Requests Sent:</strong> 2400</p>
+                    <p class="mb-2"><strong>Successful Requests:</strong> 2378</p>
+                    <p class="mb-2"><strong>Failed Requests:</strong> 22</p>
+                    <p class="mb-2"><strong>Error Rate:</strong> <span class="text-green-600">0.92%</span></p>
+                </div>
+                <div>
+                    <p class="mb-2"><strong>Avg Response Time:</strong> 264.18 ms</p>
+                    <p class="mb-2"><strong>Min Response Time:</strong> 28 ms</p>
+                    <p class="mb-2"><strong>Max Response Time:</strong> <span class="text-green-600">437 ms</span></p>
+                </div>
+            </div>
+        </div>
+    
+        <div class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+            <h3 class="text-xl font-semibold mb-4">Checkout Process</h3>
+            <div class="grid grid-cols-2 gap-4">
+                <div>
+                    <p class="mb-2"><strong>Requests Sent:</strong> 1800</p>
+                    <p class="mb-2"><strong>Successful Requests:</strong> 1795</p>
+                    <p class="mb-2"><strong>Failed Requests:</strong> 5</p>
+                    <p class="mb-2"><strong>Error Rate:</strong> <span class="text-green-600">0.28%</span></p>
+                </div>
+                <div>
+                    <p class="mb-2"><strong>Avg Response Time:</strong> 119.12 ms</p>
+                    <p class="mb-2"><strong>Min Response Time:</strong> 15 ms</p>
+                    <p class="mb-2"><strong>Max Response Time:</strong> <span class="text-green-600">279 ms</span></p>
+                </div>
+            </div>
+        </div>
+    
+        <div class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+            <h3 class="text-xl font-semibold mb-4">Update User Profile</h3>
+            <div class="grid grid-cols-2 gap-4">
+                <div>
+                    <p class="mb-2"><strong>Requests Sent:</strong> 360</p>
+                    <p class="mb-2"><strong>Successful Requests:</strong> 359</p>
+                    <p class="mb-2"><strong>Failed Requests:</strong> 1</p>
+                    <p class="mb-2"><strong>Error Rate:</strong> <span class="text-green-600">0.28%</span></p>
+                </div>
+                <div>
+                    <p class="mb-2"><strong>Avg Response Time:</strong> 71.08 ms</p>
+                    <p class="mb-2"><strong>Min Response Time:</strong> 35 ms</p>
+                    <p class="mb-2"><strong>Max Response Time:</strong> <span class="text-green-600">293 ms</span></p>
+                </div>
+            </div>
+        </div>
+    
+    </div>
+</body>
+</html>
+    

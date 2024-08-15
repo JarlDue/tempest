@@ -1,0 +1,51 @@
+---
+name: "E-commerce Platform Load Test Campaign"
+version: "1.1"
+description: "Basic load test campaign for our e-commerce platform"
+base_url: "https://api.example-ecommerce.com"
+
+scenarios:
+  - name: "Homepage Browsing"
+    endpoint: "/home"
+    method: "GET"
+    rate: 50  # requests per second
+    duration: 300  # seconds
+
+  - name: "Product Search"
+    endpoint: "/search"
+    method: "GET"
+    rate: 30
+    duration: 180
+    query_params:
+      q: "smartphone"
+
+  - name: "Add to Cart"
+    endpoint: "/cart/add"
+    method: "POST"
+    rate: 10
+    duration: 240
+    json_content:
+      product_id: "PROD123"
+      quantity: 1
+
+  - name: "Checkout Process"
+    endpoint: "/checkout"
+    method: "POST"
+    rate: 5
+    duration: 360
+    json_content:
+      user_id: "user_12345"
+      cart_id: "cart_67890"
+      payment_method: "credit_card"
+
+  - name: "Update User Profile"
+    endpoint: "/user/profile"
+    method: "PUT"
+    rate: 2
+    duration: 180
+    raw_content: |
+      firstname=John&lastname=Doe&email=john.doe@example.com
+
+success_criteria:
+  max_response_time: 500  # milliseconds
+  error_rate_threshold: 0.01  # 1%
